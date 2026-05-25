@@ -1,0 +1,26 @@
+DONE
+    View tickets system +
+    View solved tickets +
+    Fix bug - methods return int but parameter for print is calling string because it can be both. +
+    Technician  services must be created - add, delete, assign status, change contact nr +
+    Update ASSIGN TICKET to display all technicians instead of typing in (MVP) +
+    Add technicians(services) in start menu +
+    Add ticket(services) in start menu +
+    Fix bug - The operation methods +
+    Fix bug - Ensure the operation return values +
+
+TODO
+    WHEN DONE FIX STRUCTURE INTEGRATE PACKAGES
+    TIME STAMP (JSON)
+    FIX OPERATIONS MENU AND ADD MORE FEATURES LIKE ADDING TECHNICIANS
+    ADD LOAD TICKETS TO THE OPERATION OR START OF THE PROGRAM
+
+
+Flow
+    User → ConsoleUI → TicketService → TicketRepository → Ticket
+    - User chooses an option
+    - UI receives input
+    - Service decides what should happen
+    - Repository stores/retrieves data
+    - Ticket is the actual data object
+    - Technician stores all the Technician's

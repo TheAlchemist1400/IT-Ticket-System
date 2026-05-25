@@ -1,0 +1,140 @@
+// ============================== TICKET ID ==============================
+    public int ticketID()
+    {
+        ticketId++;
+        name();
+        return ticketId;
+    }
+
+    // ============================== NAME ==============================
+    public String name()
+    {
+        System.out.println("Enter clients name: ");
+        String clientName = scanner.nextLine();
+        floor();
+        return clientName;
+    }
+        
+    
+    // ============================== FLOOR ==============================
+    public int floor()
+    {
+        System.out.println("What floor are you on?");
+        int floor = scanner.nextInt();
+        scanner.nextLine();
+
+        boolean wrong = true;
+
+        while(wrong)
+        {    
+            String floorName = switch (floor) 
+            {
+                case 1 -> "Floor 1";
+                case 2 -> "Floor 2";
+                case 3 -> "Floor 3";
+                case 4 -> "Floor 4";
+                case 5 -> "Floor 5";
+                case 6 -> "Floor 6";
+                default -> "Floor selected invalid, input agains";
+            };
+
+            if(floorName.equals("Floor selected invalid, input agains"))
+            {
+                System.out.println("Invalid floor, try again:");
+                floor = scanner.nextInt();  
+                {continue;}
+            } 
+            else
+            {
+                wrong = false;
+            } 
+        }
+
+        department();
+        return floor;
+    }
+    
+    // ============================== DEPARTMENT ==============================
+    public void department()
+    {
+        boolean wrong = true;
+
+        System.out.println("Which section you need help with: ");
+        System.out.println("1) Network");
+        System.out.println("2) Computer");
+        System.out.println("3) Laptop");
+        System.out.println("4) other");
+        int ans = scanner.nextInt();
+        scanner.nextLine();
+
+        String department = switch (ans)
+        {
+            case 1 -> "Network";
+            case 2 -> "Computer";
+            case 3 -> "Laptop";
+            case 4 -> "Other";
+            default -> "Invalid input, input again";                
+        };
+
+        if (department.equalsIgnoreCase("Invalid input, input again"))
+        {
+            System.out.println("Which departmental is your problem within: ");
+            scanner.nextLine();
+            department = scanner.nextLine();
+        }
+        division();
+    }
+    
+    // ============================== DIVISION ==============================
+    public void division()
+    {
+        System.out.println("Which department are you from ?");
+        System.out.println("1) Call center");
+        System.out.println("2) Lecturer");
+        System.out.println("3) Receptionist");
+        System.out.println("4) Student");
+        System.out.println("5) other");
+        int ans = scanner.nextInt();
+        scanner.nextLine();
+
+        String division = switch (ans)
+        {
+            case 1 -> " Call center";
+            case 2 -> " Lecturer";
+            case 3 -> " Receptionist";
+            case 4 -> " Student";
+            case 5 -> "Other";
+            default -> "Invalid input, input again";                
+        };
+
+        if (division.equalsIgnoreCase("Other"))
+        {
+            System.out.println("Which division is your problem within: ");
+            division = scanner.nextLine();
+        }
+        problem();
+    }
+    
+    // ============================== PROBLEM ==============================
+    public String problem()
+    {
+        System.out.println("Whats your problem: ");
+        String problem = scanner.nextLine();
+
+        printTicket(ticketId, problem, floor, problem, problem, problem);
+        return problem;
+    }
+
+    // ============================== PROBLEM ==============================
+    public void printTicket(int ticketId, String clientName, int floor, String department, String division, String problem)
+    {
+        
+        System.out.println("=============================== TICKET " + ticketId + " ===============================");
+        System.out.println("Client name: " + clientName);
+        System.out.println("Floor: " + floor);
+        System.out.println("Department: " + department);
+        System.out.println("Division: " + division);
+        System.out.println("Problem: " + problem);
+        System.out.println("================================================================================");
+    
+    }
